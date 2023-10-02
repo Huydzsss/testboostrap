@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>Account and Password Validation with Bootstrap 5</title>
+</head>
+<body>
+    <h1>Linh tinh</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html" >
+    <img src="https://cdn-icons-png.flaticon.com/256/25/25694.png" alt="Trang chủ" width="30px" height="24px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">đăng kí tài khoản netflop</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tính năng hay ho
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100010321127522">về fb</a></li>
+            <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">về youtube</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Ghi cho đủ dòng</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ghi cho đủ dòng</a></li>
+                <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex ms-auto" role="search" >
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container my-5">
+    <h1 class="mb-4">Tạo tài khoản</h1>
+    <form class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label" >Tên của bạn</label>
+        <input type="text" class="form-control" id="username" placeholder="Tên" required>
+        <div class="invalid-feedback">
+          không được bỏ trống tên.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mật khẩu</label>
+        <input type="password" class="form-control" id="password" required>
+        <div class="invalid-feedback">
+          không được bỏ trống mật khẩu.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Tạo acc</button>
+    </form>
+    <div id="displayInfo" class="mt-4" style="display:none;">
+        <h2>Your Information</h2>
+        <p id="displayUsername"></p>
+        <p id="displayPassword"></p>
+    </div>
+  </div>
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <span>&copy; web siêu đểu</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        event.preventDefault();
+        event.stopPropagation();
+        document.getElementById('username').classList.add('is-invalid');
+        document.getElementById('password').classList.add('is-invalid');
+      } else {
+        document.getElementById('displayUsername').innerText = 'Username: ' + username;
+        document.getElementById('displayPassword').innerText = 'Password: ' + password;
+        document.getElementById('displayInfo').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
